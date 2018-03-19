@@ -35,7 +35,7 @@ locale = fr_FR.UTF-8
 font-0 = Oxygen Mono:size=9;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = FontAwesome:size=10.5;1
-modules-left = clock networkmanager workspace window_count 
+modules-left = clock networkmanager workspace
 modules-center = term chrome fm music
 modules-right = volume xkeyboard battery wlan eth powermenu
 tray-position = 
