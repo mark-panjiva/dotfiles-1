@@ -4,7 +4,7 @@
 
 [colors]
 background = #88111111
-background-alt = #cc1a1a1a
+background-alt = #ff1a1a1a
 foreground = #C5C8C6
 foreground-alt = #B2B2B2
 red = #CC6666
@@ -69,7 +69,7 @@ click-left = nautilus &
 type = custom/text
 content = 
 content-foreground = ${colors.foreground}
-click-left = st &
+click-left = xfce4-terminal &
 
 [module/editor]
 type = custom/text
@@ -162,14 +162,14 @@ label-indicator-background = ${colors.background}
 ;interval = 1
 ;format-prefix = " "
 ;format-prefix-foreground = ${colors.foreground-alt}
-;label = %{A1:gnome-terminal --geometry 86x10 -e htop:}%percentage%%%{A}
+;label = %{A1:xfce4-terminal --geometry 86x10 -e htop:}%percentage%%%{A}
 
 ;[module/memory]
 ;type = internal/memory
 ;interval = 1
 ;format-prefix = " "
 ;format-prefix-foreground = ${colors.foreground-alt}
-;label = %{A1:gnome-terminal --geometry 86x10 -e htop:}%percentage_used%%%{A}
+;label = %{A1:xfce4-terminal --geometry 86x10 -e htop:}%percentage_used%%%{A}
 
 ;[module/date]
 ;type = custom/script
