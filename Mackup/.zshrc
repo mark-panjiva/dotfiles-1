@@ -76,3 +76,5 @@ export PATH=$HOME/.local/bin:$PATH
 source $HOME/.rvm/scripts/rvm
 rvm use 2.3.0
 rvm_slience_mismatched_path=1
+xmodmap -e "clear lock" #disable caps lock switch
+xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape

@@ -21,12 +21,14 @@ height = 24
 ;radius = 6.0
 fixed-center = false
 bottom = false
-background = ${colors.background}
+;background = ${colors.background}
+background = #000f0f0f
 foreground = ${colors.foreground}
 line-size = 0
 ;line-color = #f00
 border-size = 4
-border-color = ${colors.background} 
+;border-color = ${colors.background} 
+;border-top-color = #000f0f0f
 padding-left = 1
 padding-right = 1
 module-margin-left = 1
@@ -35,9 +37,9 @@ locale = fr_FR.UTF-8
 font-0 = Oxygen Mono:size=9;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
 font-2 = FontAwesome:size=10.5;1
-modules-left = clock networkmanager workspace
+modules-left = date clock workspace
 modules-center = term chrome fm music
-modules-right = volume xkeyboard battery wlan eth powermenu
+modules-right = volume battery wlan eth networkmanager powermenu
 tray-position = 
 ;tray-padding = 2
 ;tray-background = ${colors.background-alt}
@@ -157,33 +159,33 @@ label-indicator-margin = 1
 label-indicator-foreground = ${colors.red}
 label-indicator-background = ${colors.background} 
 
-;[module/cpu]
-;type = internal/cpu
-;interval = 1
-;format-prefix = " "
-;format-prefix-foreground = ${colors.foreground-alt}
-;label = %{A1:xfce4-terminal --geometry 86x10 -e htop:}%percentage%%%{A}
+[module/cpu]
+type = internal/cpu
+interval = 1
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %{A1:xfce4-terminal --geometry 86x10 -e htop:}%percentage%%%{A}
 
-;[module/memory]
-;type = internal/memory
-;interval = 1
-;format-prefix = " "
-;format-prefix-foreground = ${colors.foreground-alt}
-;label = %{A1:xfce4-terminal --geometry 86x10 -e htop:}%percentage_used%%%{A}
+[module/memory]
+type = internal/memory
+interval = 1
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %{A1:xfce4-terminal --geometry 86x10 -e htop:}%percentage_used%%%{A}
 
-;[module/date]
-;type = custom/script
-;interval = 60
-;exec = echo "$(date +%a) $(date +%d) $(date +%b)"
-;format = <label>
-;format-prefix = " "
-;format-prefix-foreground = ${colors.foreground-alt}
-;label = %{A1:gsimplecal &:}%output%%{A}
+[module/date]
+type = custom/script
+interval = 60
+exec = echo "$(date +%a) $(date +%d) $(date +%b)"
+format = <label>
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
+label = %{A1:gsimplecal &:}%output%%{A}
 
 [module/clock]
 type = custom/script
 interval = 5
-exec = echo "$(date +%R)"
+exec = echo "$(date '+%I:%M %p')"
 format = <label>
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
