@@ -177,12 +177,9 @@
 
 " Vim UI {
 
-    if !exists('g:override_spf13_bundles') && filereadable(expand("~/.vim/bundle/vim-colors-solarized/colors/solarized.vim"))
-        let g:solarized_termcolors=256
-        let g:solarized_termtrans=1
-        let g:solarized_contrast="normal"
-        let g:solarized_visibility="normal"
-        color solarized             " Load a colorscheme
+    if !exists('g:override_spf13_bundles') && filereadable(expand("~/.vim/bundle/awesome-vim-colorschemes/colors/molokai.vim"))
+        colorscheme molokai
+        " color solarized             " Load a colorscheme
     endif
 
     set tabpagemax=15               " Only show 15 tabs
