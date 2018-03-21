@@ -150,7 +150,8 @@
         if count(g:spf13_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
             Plug 'scrooloose/syntastic'
-            Plug 'tpope/vim-fugitive'
+            " Plug 'tpope/vim-fugitive'
+            Plug 'airblade/vim-gitgutter'
             Plug 'mattn/webapi-vim'
             Plug 'mattn/gist-vim'
             Plug 'scrooloose/nerdcommenter'

@@ -177,7 +177,7 @@
 
 " Vim UI {
 
-    if !exists('g:override_spf13_bundles') && filereadable(expand("~/.vim/bundle/awesome-vim-colorschemes/colors/molokai.vim"))
+    if !exists('g:override_spf13_bundles') && filereadable(expand("~/.vim/colors/molokai.vim"))
         colorscheme molokai
         " color solarized             " Load a colorscheme
     endif
@@ -205,7 +205,7 @@
         set statusline=%<%f\                     " Filename
         set statusline+=%w%h%m%r                 " Options
         if !exists('g:override_spf13_bundles')
-            set statusline+=%{fugitive#statusline()} " Git Hotness
+            "set statusline+=%{fugitive#statusline()} " Git Hotness
         endif
         set statusline+=\ [%{&ff}/%Y]            " Filetype
         set statusline+=\ [%{getcwd()}]          " Current dir
