@@ -9,10 +9,14 @@
 call plug#begin('~/.vim/bundle')
 " ------Plugs-------
 Plug 'scrooloose/nerdtree'
+Plug 'MarcWeber/vim-addon-mw-utils'
+Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-surround'
 Plug 'gcmt/breeze.vim'
 Plug 'kien/ctrlp.vim'
-Plug 'SirVer/ultisnips'
+"Plug 'SirVer/ultisnips'
+Plug 'garbas/vim-snipmate'
+Plug 'honza/vim-snippets'
 Plug 'tomtom/tcomment_vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -20,10 +24,11 @@ Plug 'airblade/vim-gitgutter'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'dikiaap/minimalist'
 Plug 'gregsexton/gitv'
-
+Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-endwise'
 " Plug 'ervandew/supertab'
+Plug 'nvie/vim-flake8'
 Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
@@ -38,6 +43,9 @@ syntax on
 let g:rehash256 = 1
 colorscheme minimalist
 filetype plugin indent on
+
+let python_highlight_all=1
+syntax on
 
 if has('autocmd')
   filetype plugin indent on
@@ -241,4 +249,13 @@ set foldenable                  " Auto fold code
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
+" python PEP8
+au BufNewFile,BufRead *.py
+    \ set tabstop=4
+    \ set softtabstop=4
+    \ set shiftwidth=4
+    \ set textwidth=79
+    \ set expandtab
+    \ set autoindent
+    \ set fileformat=unix
 
