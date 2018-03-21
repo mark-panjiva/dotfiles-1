@@ -108,15 +108,10 @@
             Plug 'tacahiroy/ctrlp-funky'
             Plug 'terryma/vim-multiple-cursors'
             Plug 'vim-scripts/sessionman.vim'
+            Plug 'powerline/powerline'
             " Plug 'matchit.zip'
-            if (has("python") || has("python3")) && exists('g:spf13_use_powerline') && !exists('g:spf13_use_old_powerline')
-                Plug 'Lokaltog/powerline', {'rtp':'/powerline/bindings/vim'}
-            elseif exists('g:spf13_use_powerline') && exists('g:spf13_use_old_powerline')
-                Plug 'Lokaltog/vim-powerline'
-            else
-                Plug 'vim-airline/vim-airline'
-                Plug 'vim-airline/vim-airline-themes'
-            endif
+            Plug 'vim-airline/vim-airline'
+            Plug 'vim-airline/vim-airline-themes'
             Plug 'powerline/fonts'
             Plug 'bling/vim-bufferline'
             Plug 'easymotion/vim-easymotion'
@@ -149,7 +144,8 @@
     "
         if count(g:spf13_bundle_groups, 'programming')
             " Pick one of the checksyntax, jslint, or syntastic
-            Plug 'scrooloose/syntastic'
+            Plug 'vim-syntastic/syntastic'
+            Plug 'myint/syntastic-extras'
             " Plug 'tpope/vim-fugitive'
             Plug 'airblade/vim-gitgutter'
             Plug 'mattn/webapi-vim'

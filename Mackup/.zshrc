@@ -1,18 +1,48 @@
+# If you come from bash you might have to change your $PATH.
+# export PATH=$HOME/bin:/usr/local/bin:$PATH
+
+# Path to your oh-my-zsh installation.
+autoload -Uz is-at-least
+if ! is-at-least 5.2; then
+  export ZSH=/home/mark/.oh-my-zsh
+  ZSH_THEME="refined"
+  ENABLE_CORRECTION="true"
+  COMPLETION_WAITING_DOTS="true"
+  plugins=(
+    git
+    bundler
+    dotenv
+    rake
+    ruby
+  )
+  source $ZSH/oh-my-zsh.sh
+else
+  ZSH_THEME="powerline"
+  export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+  # Start zim
+  [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh#
+  # User configuration sourced by interactive shells
+  source ${ZDOTDIR:-${HOME}}/.zlogin
+  # Change default zim location
+  # export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+  # Start zim
+  [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh#
+  # prompt -s powerline
+fi
+# User configuration
+
+# export MANPATH="/usr/local/man:$MANPATH"
+
+# You may need to manually set your language environment
+# export LANG=en_US.UTF-8
+
+# ssh
+# export SSH_KEY_PATH="~/.ssh/rsa_id"
 #
 # User configuration sourced by interactive shells
 #
-source ${ZDOTDIR:-${HOME}}/.zlogin
 # Change default zim location
-export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-
-# Start zim
-[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh#
-# Executes commands at the start of an interactive session.
-#
-# Authors:
-#   Sorin Ionescu <sorin.ionescu@gmail.com>
-#
-# Customize to your needs...
+ Customize to your needs...
 #
 # some more ls aliases
 alias ll='ls -alF'
@@ -27,19 +57,6 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
-# colors
-RED="\[\033[31m\]"
-GREEN="\[\033[32m\]"
-YELLOW="\[\033[33m\]"
-BLUE="\[\033[0;34m\]"
-BLUE_B="\[\033[1;34m\]"
-WHITE_B="\[\033[1;37m\]"
-NO_COLOR="\[\033[0m\]"
-
-# prompt with git repo
-#export PS1="\u@\h $BLUE\w $YELLOW\$(__git_ps1 "$(%s)")$NO_COLOR$BLUE_B 🐼 👊  $NO_COLOR";
-#export DEVSYNC_REMOTE="yellow.panjiva.com"
 
 # aliases
 alias ff="find . -type f -name "
