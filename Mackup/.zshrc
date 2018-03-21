@@ -1,5 +1,3 @@
-
-
 #
 # User configuration sourced by interactive shells
 #
@@ -14,12 +12,6 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 # Authors:
 #   Sorin Ionescu <sorin.ionescu@gmail.com>
 #
-
-# Source Prezto.
-#if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-#  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
-#fi
-
 # Customize to your needs...
 #
 # some more ls aliases
@@ -73,7 +65,12 @@ export rvmsudo_secure_path=1
 export VISUAL=vim
 export EDITOR=""$VISUAL""
 export PATH=$HOME/.local/bin:$PATH
-source $HOME/.rvm/scripts/rvm
+if [ -f $HOME/.rvm/scripts/rvm ]; then
+  source $HOME/.rvm/scripts/rvm
+elif [ -f /usr/local/rvm/scripts/rvm ]; then
+  source /usr/local/rvm/scripts/rvm
+fi
+
 rvm use 2.3.0
 rvm_slience_mismatched_path=1
 xmodmap -e "clear lock" #disable caps lock switch
