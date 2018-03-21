@@ -40,10 +40,6 @@ fi
 # export SSH_KEY_PATH="~/.ssh/rsa_id"
 #
 # User configuration sourced by interactive shells
-#
-# Change default zim location
- Customize to your needs...
-#
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
