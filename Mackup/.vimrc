@@ -35,6 +35,7 @@ Plug 'tpope/vim-rails'
 Plug 'vim-syntastic/syntastic'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
+Plug 'thaerkh/vim-indentguides'
 """"""""
 set t_Co=256   " This is may or may not needed.
 
@@ -274,4 +275,6 @@ au BufNewFile,BufRead *.py
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
-
+set colorcolumn=80 "80 char width columns for pep8 and ruby
+highlight ColorColumn ctermbg=0 guibg=lightgrey
+let g:indentguides_spacechar = '⎸'
