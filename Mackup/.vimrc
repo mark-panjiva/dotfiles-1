@@ -34,6 +34,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'vim-syntastic/syntastic'
 Plug 'tomasr/molokai'
+Plug 'majutsushi/tagbar'
 """"""""
 set t_Co=256   " This is may or may not needed.
 
@@ -245,7 +246,22 @@ set wildmode=list:longest,full  " Command <Tab> completion, list matches, then l
 set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
-set foldenable                  " Auto fold code
+" Folds {
+  set foldenable                  " Auto fold code
+  set foldmethod=syntax
+  set foldlevelstart=1
+
+  let javaScript_fold=1         " JavaScript
+  let perl_fold=1               " Perl
+  let php_folding=1             " PHP
+  let r_syntax_folding=1        " R
+  let ruby_fold=1               " Ruby
+  let sh_fold_enabled=1         " sh
+  let vimsyn_folding='af'       " Vim script
+  let xml_syntax_folding=1      " XML
+" }
+"https://github.com/majutsushi/tagbar
+nmap <S-T> :TagbarToggle<CR>
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
