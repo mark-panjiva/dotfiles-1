@@ -35,7 +35,7 @@ Plug 'tpope/vim-rails'
 Plug 'vim-syntastic/syntastic'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
-Plug 'thaerkh/vim-indentguides'
+Plug 'nathanaelkane/vim-indent-guides'
 """"""""
 set t_Co=256   " This is may or may not needed.
 
@@ -44,6 +44,7 @@ call plug#end()
 syntax on
 let g:rehash256 = 1
 colorscheme minimalist
+set background=dark
 filetype plugin indent on
 
 let python_highlight_all=1
@@ -275,6 +276,13 @@ au BufNewFile,BufRead *.py
     \ set expandtab
     \ set autoindent
     \ set fileformat=unix
+"Set color of 80 char limit column
 set colorcolumn=80 "80 char width columns for pep8 and ruby
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-let g:indentguides_spacechar = '⎸'
+
+"for indent guides
+set ts=2 tw=2 et
+let g:indent_guides_start_level = 2
+let g:indent_guides_enable_on_vim_startup = 1
+hi IndentGuidesOdd  ctermbg=black
+hi IndentGuidesEven ctermbg=darkgrey
