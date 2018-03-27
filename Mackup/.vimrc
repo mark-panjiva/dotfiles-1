@@ -44,6 +44,7 @@ call plug#end()
 syntax on
 let g:rehash256 = 1
 colorscheme minimalist
+set background=dark
 filetype plugin indent on
 
 let python_highlight_all=1
