@@ -35,7 +35,8 @@ Plug 'tpope/vim-rails'
 Plug 'vim-syntastic/syntastic'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
-Plug 'nathanaelkane/vim-indent-guides'
+"Plug 'nathanaelkane/vim-indent-guides'
+Plug 'thaerkh/vim-indentguides'
 Plug 'easymotion/vim-easymotion'
 """"""""
 set t_Co=256   " This is may or may not needed.
@@ -279,8 +280,10 @@ au BufNewFile,BufRead *.py
     \ set fileformat=unix
 set colorcolumn=80 "80 char width columns for pep8 and ruby
 highlight ColorColumn ctermbg=0 guibg=lightgrey
-
+" For indentGuides
 set ts=2 sw=2 et
 let g:indent_guides_start_level=2
 let g:indent_guides_guide_size =1
 
+"for simple guides
+let g:indentguides_spacechar = '⎸'
