@@ -134,7 +134,26 @@ set completeopt=menuone,longest,preview
 "
 
 " NERDTree
-nnoremap <S-n> :NERDTreeFind<CR>
+let g:NetrwIsOpen=0
+function! ToggleNetrw()
+    if g:NetrwIsOpen
+        let i = bufnr("$")
+        while (i >= 1)
+            if (getbufvar(i, "&filetype") == "netrw")
+                silent exe "bwipeout " . i 
+            endif
+            let i-=1
+        endwhile
+        let g:NetrwIsOpen=0
+    else
+        let g:NetrwIsOpen=1
+        silent Lexplore
+    endif
+endfunction
+
+"nnoremap <S-n> :NERDTreeFind<CR>
+nnoremap <S-n> :call ToggleNetrw()<CR>
+
 
 " CtrlP
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
@@ -265,7 +284,9 @@ set scrolloff=3                 " Minimum lines to keep above and below cursor
   let xml_syntax_folding=1      " XML
 " }
 "https://github.com/majutsushi/tagbar
-nmap <S-T> :TagbarToggle<CR>
+"nmap <S-T> :TagbarToggle<CR>
+nmap <S-T> :TagbarOpenAutoClose<CR>
+
 set list
 set listchars=tab:›\ ,trail:•,extends:#,nbsp:. " Highlight problematic whitespace
 
