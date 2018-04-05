@@ -272,7 +272,7 @@ set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
 " Folds {
   set foldenable                  " Auto fold code
-  set foldmethod=syntax
+  set foldmethod=indent
   set foldlevelstart=1
 
   let javaScript_fold=1         " JavaScript
