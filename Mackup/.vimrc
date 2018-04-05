@@ -38,6 +38,7 @@ Plug 'majutsushi/tagbar'
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'thaerkh/vim-indentguides'
 Plug 'easymotion/vim-easymotion'
+Plug 'Konfekt/FastFold'
 """"""""
 set t_Co=256   " This is may or may not needed.
 
@@ -283,6 +284,11 @@ set scrolloff=3                 " Minimum lines to keep above and below cursor
   let vimsyn_folding='af'       " Vim script
   let xml_syntax_folding=1      " XML
 " }
+"Fastfolds
+let g:fastfold_savehook = 1
+let g:fastfold_fold_command_suffixes =  ['x','X','a','A','o','O','c','C']
+let g:fastfold_fold_movement_commands = [']z', '[z', 'zj', 'zk']
+
 "https://github.com/majutsushi/tagbar
 "nmap <S-T> :TagbarToggle<CR>
 nmap <S-T> :TagbarOpenAutoClose<CR>
@@ -321,3 +327,6 @@ endfunction
 
 noremap <leader>ss :call StripWhitespace()<CR>
 autocmd BufWritePre *.rb,*.html,*.rhtml call StripWhitespace()
+
+
+
