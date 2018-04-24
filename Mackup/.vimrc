@@ -20,6 +20,7 @@ Plug 'honza/vim-snippets'
 Plug 'tomtom/tcomment_vim'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+"Plug 'itchyny/lightline.vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'jpo/vim-railscasts-theme'
 Plug 'dikiaap/minimalist'
@@ -29,24 +30,37 @@ Plug 'vim-ruby/vim-ruby'
 Plug 'tpope/vim-endwise'
 " Plug 'ervandew/supertab'
 Plug 'nvie/vim-flake8'
-Plug 'ajh17/VimCompletesMe'
+"Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
-Plug 'vim-syntastic/syntastic'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'thaerkh/vim-indentguides'
 Plug 'easymotion/vim-easymotion'
 Plug 'Konfekt/FastFold'
-""""""""
+Plug 'Erichain/vim-monokai-pro'
+Plug 'w0rp/ale'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_smart_case = 1
+inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+
 set t_Co=256   " This is may or may not needed.
 
 " Initialize plugin system
 call plug#end()
 syntax on
 let g:rehash256 = 1
-colorscheme minimalist
+colorscheme monokai_pro
 set background=dark
 filetype plugin indent on
 
@@ -60,6 +74,10 @@ if has('syntax') && !exists('g:syntax_on')
   syntax enable
 endif
 
+" Enable completion where available.
+let g:ale_completion_enabled = 1
+let g:ale_fix_on_save = 1
+let g:ale_fixers = {'ruby': ['rubocop']}
 " Use :help 'option' to see the documentation for the given option.
 set autoindent
 set backspace=indent,eol,start
@@ -67,7 +85,6 @@ set complete-=i
 set showmatch
 set showmode
 "set smarttab
-
 set nrformats-=octal
 set shiftround
 
@@ -228,9 +245,9 @@ map <Bar> <C-W>v<C-W><Right>
 map -     <C-W>s<C-W><Down>
 
 
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
 
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
@@ -253,7 +270,7 @@ function! XTermPasteBegin()
   return ""
 endfunction
 set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
-set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
+set viewoptions=options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore             " Allow for cursor beyond last character
 set history=1000                    " Store a ton of history (default is 20)
 set spell                           " Spell checking on
@@ -271,18 +288,9 @@ set whichwrap=b,s,h,l,<,>,[,]   " Backspace and cursor keys wrap too
 set scrolljump=5                " Lines to scroll when cursor leaves screen
 set scrolloff=3                 " Minimum lines to keep above and below cursor
 " Folds {
-  set foldenable                  " Auto fold code
-  set foldmethod=indent
-  set foldlevelstart=1
-
-  let javaScript_fold=1         " JavaScript
-  let perl_fold=1               " Perl
-  let php_folding=1             " PHP
-  let r_syntax_folding=1        " R
-  let ruby_fold=1               " Ruby
-  let sh_fold_enabled=1         " sh
-  let vimsyn_folding='af'       " Vim script
-  let xml_syntax_folding=1      " XML
+  "set foldenable                  " Auto fold code
+  "set foldmethod=indent
+  "set foldlevelstart=1
 " }
 "Fastfolds
 let g:fastfold_savehook = 1
@@ -327,6 +335,3 @@ endfunction
 
 noremap <leader>ss :call StripWhitespace()<CR>
 autocmd BufWritePre *.rb,*.html,*.rhtml call StripWhitespace()
-
-
-

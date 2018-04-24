@@ -5,7 +5,8 @@
 autoload -Uz is-at-least
 if ! is-at-least 5.2; then
   export ZSH=/home/mark/.oh-my-zsh
-  ZSH_THEME="refined"
+  # ZSH_THEME="refined"
+  ZSH_THEME="kafeitu"
   ENABLE_CORRECTION="true"
   COMPLETION_WAITING_DOTS="true"
   plugins=(
@@ -15,6 +16,8 @@ if ! is-at-least 5.2; then
     rake
     ruby
   )
+  source ~/powerless/powerless.zsh false # Script with prompt, disable hardcoded colors.
+  source ~/powerless/utilities.zsh true  # Optional scripts (see above), enable dirstack tweaks.
   source $ZSH/oh-my-zsh.sh
 else
   ZSH_THEME="powerline"
@@ -86,5 +89,3 @@ fi
 
 rvm use 2.3.0
 rvm_slience_mismatched_path=1
-xmodmap -e "clear lock" #disable caps lock switch
-xmodmap -e "keysym Caps_Lock = Escape" #set caps_lock as escape
