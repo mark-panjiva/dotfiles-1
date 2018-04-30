@@ -27,6 +27,7 @@ Plug 'dikiaap/minimalist'
 Plug 'gregsexton/gitv'
 Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-ruby/vim-ruby'
+Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-endwise'
 " Plug 'ervandew/supertab'
 Plug 'nvie/vim-flake8'
@@ -35,6 +36,8 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
+Plug 'godlygeek/tabular'
+Plug 'terryma/vim-multiple-cursors'
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'thaerkh/vim-indentguides'
 Plug 'easymotion/vim-easymotion'
@@ -240,6 +243,13 @@ nnoremap <Leader>o :set nopaste<CR>
 noremap  <Leader>g :GitGutterToggle<CR>
 
 
+if exists(":Tabularize")
+  nmap <Leader>a= :Tabularize /=<CR>
+  vmap <Leader>a= :Tabularize /=<CR>
+  nmap <Leader>a: :Tabularize /:\zs<CR>
+  vmap <Leader>a: :Tabularize /:\zs<CR>
+endif
+
 map <Tab> <C-W>w
 map <Bar> <C-W>v<C-W><Right>
 map -     <C-W>s<C-W><Down>
@@ -273,7 +283,7 @@ set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore             " Allow for cursor beyond last character
 set history=1000                    " Store a ton of history (default is 20)
-set spell                           " Spell checking on
+"set spell                           " Spell checking on
 set hidden                          " Allow buffer switching without saving
 set iskeyword-=.                    " '.' is an end of word designator
 set iskeyword-=#                    " '#' is an end of word designator
