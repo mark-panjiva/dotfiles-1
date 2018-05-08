@@ -41,6 +41,7 @@ font pango:scientifica 8
 
 # Variables {{{
 set $mod Mod1
+set $ctrl Control
 set $sup Mod4
 set $terminal xfce4-terminal
 set $workspace1  "1"
@@ -186,6 +187,7 @@ bindsym $mod+Shift+r exec --no-startup-id "i3-msg restart"
 bindsym $sup+space   exec --no-startup-id rofi -show run -lines 10 -width 40
 bindsym $mod+o       open
 bindsym $mod+Shift+c reload
+bindsym $ctrl+space  exec --no-startup-id j4-dmenu-desktop --use-xdg-de
 # }}}
 
 # Pulse Audio Controls {{{
@@ -207,11 +209,12 @@ bindsym XF86AudioPrev exec --no-startup-id mpc prev
 
 #Autostart {{{
 exec_always --no-startup-id bash ~/.config/polybar/launch.sh
-exec        --no-startup-id ~/scripts/walper.sh -e
 exec        --no-startup-id xset r rate 280 40
+exec        --no-startup-id feh --bg-scale ~/Pictures/pier_beach.jpg
 exec        --no-startup-id dunst
 exec        --no-startup-id compton
-exec        --no-startup-id xwinwrap -ov -ni -fs -- mpv -vo x11 -wid WID --keepaspect=no --loop ~/Pictures/rain.gif
+exec        --no-startup-id disport --e left
+#exec        --no-startup-id xwinwrap -ov -ni -fs -- mpv -vo x11 -wid WID --keepaspect=no --loop ~/Pictures/rain.gif
 exec i3 --force-xinerama -V >>~/.i3/i3log 2>&1
 # }}}
 
