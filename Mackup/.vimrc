@@ -14,7 +14,7 @@ Plug 'tomtom/tlib_vim'
 Plug 'tpope/vim-surround'
 Plug 'gcmt/breeze.vim'
 Plug 'kien/ctrlp.vim'
-"Plug 'SirVer/ultisnips'
+Plug 'SirVer/ultisnips'
 Plug 'garbas/vim-snipmate'
 Plug 'honza/vim-snippets'
 Plug 'tomtom/tcomment_vim'
@@ -29,33 +29,34 @@ Plug 'vim-scripts/indentpython.vim'
 Plug 'vim-ruby/vim-ruby'
 Plug 'sheerun/vim-polyglot'
 Plug 'tpope/vim-endwise'
-" Plug 'ervandew/supertab'
-Plug 'nvie/vim-flake8'
-"Plug 'ajh17/VimCompletesMe'
+Plug 'ervandew/supertab'
+Plug 'vim-syntastic/syntastic'
+"Plug 'nvie/vim-flake8'
+Plug 'ajh17/VimCompletesMe'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rails'
 Plug 'tomasr/molokai'
 Plug 'majutsushi/tagbar'
 Plug 'godlygeek/tabular'
-Plug 'terryma/vim-multiple-cursors'
+"Plug 'terryma/vim-multiple-cursors'
 "Plug 'nathanaelkane/vim-indent-guides'
 Plug 'thaerkh/vim-indentguides'
 Plug 'easymotion/vim-easymotion'
-Plug 'Konfekt/FastFold'
+"Plug 'Konfekt/FastFold'
 Plug 'Erichain/vim-monokai-pro'
-Plug 'w0rp/ale'
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_smart_case = 1
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
+"Plug 'w0rp/ale'
+"if has('nvim')
+"  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+"else
+"  Plug 'Shougo/deoplete.nvim'
+"  Plug 'roxma/nvim-yarp'
+"  Plug 'roxma/vim-hug-neovim-rpc'
+"endif
+"let g:deoplete#enable_at_startup = 1
+"let g:deoplete#enable_smart_case = 1
+"inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+"inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+"autocmd InsertLeave,CompleteDone * if pumvisible() == 0 | pclose | endif
 
 set t_Co=256   " This is may or may not needed.
 
@@ -174,7 +175,8 @@ endfunction
 
 "nnoremap <S-n> :NERDTreeFind<CR>
 nnoremap <S-n> :call ToggleNetrw()<CR>
-
+"Make sure Ctrl-a doesn't increment
+nmap <C-a> <Nop> 
 
 " CtrlP
 set wildignore+=*/.git/*,*/.hg/*,*/.svn/*
@@ -279,6 +281,8 @@ function! XTermPasteBegin()
   set paste
   return ""
 endfunction
+" don't keep vim in buffer
+set t_ti=""
 set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=options,cursor,unix,slash " Better Unix / Windows compatibility
 set virtualedit=onemore             " Allow for cursor beyond last character

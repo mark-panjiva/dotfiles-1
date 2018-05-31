@@ -6,7 +6,7 @@ autoload -Uz is-at-least
 if ! is-at-least 5.2; then
   export ZSH=/home/mark/.oh-my-zsh
   # ZSH_THEME="refined"
-  ZSH_THEME="kafeitu"
+  ZSH_THEME="agnoster"
   ENABLE_CORRECTION="true"
   COMPLETION_WAITING_DOTS="true"
   plugins=(
