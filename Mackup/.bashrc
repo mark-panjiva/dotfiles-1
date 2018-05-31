@@ -150,3 +150,6 @@ alias lastsnap='ssh deploy@yukon "salt -L 'lethe,arno' cmd.run '/home/deploy/scr
 export API_ACCESS_TOKEN="qUWznXxnHvZeizwZAhpU3Xp3IUtYkLuK5q47jgt8"
 export RUBYOPT=-W0
 
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"

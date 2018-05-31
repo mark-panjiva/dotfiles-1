@@ -5,7 +5,6 @@
 autoload -Uz is-at-least
 if ! is-at-least 5.2; then
   export ZSH=/home/mark/.oh-my-zsh
-  # ZSH_THEME="refined"
   ZSH_THEME="agnoster"
   ENABLE_CORRECTION="true"
   COMPLETION_WAITING_DOTS="true"
@@ -72,6 +71,8 @@ export REPO_PATH=~/web     # change fo-r your layout
 alias git_clean_local_branches='git branch --merged | egrep -v "(^\*|master)" | xargs --no-run-if-empty git branch -d'
 alias git_clean_remote_branches='git branch -r --merged | egrep -v "(^\*|master)" | xargs --no-run-if-empty -n 1 git push --delete'
 alias cat='pygmentize -g'
+alias spc='vpn connect us-remote.spglobal.com/vpn'
+alias spd='vpn disconnect'
 if [ -f $REPO_PATH/script/panjiva_zshrc ]; then
   source $REPO_PATH/script/panjiva_zshrc
   setup_git_hooks
@@ -80,7 +81,7 @@ export TERM=xterm-256color
 export rvmsudo_secure_path=1
 export VISUAL=vim
 export EDITOR=""$VISUAL""
-export PATH=$HOME/.local/bin:$PATH
+export PATH=/opt/cisco/anyconnect/bin/:$HOME/.local/bin:$PATH
 if [ -f $HOME/.rvm/scripts/rvm ]; then
   source $HOME/.rvm/scripts/rvm
 elif [ -f /usr/local/rvm/scripts/rvm ]; then
@@ -89,3 +90,7 @@ fi
 
 rvm use 2.3.0
 rvm_slience_mismatched_path=1
+
+# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
+export PATH="$PATH:$HOME/.rvm/bin"
+xmodmap ~/.Xmodmap
