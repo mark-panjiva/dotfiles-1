@@ -45,6 +45,8 @@ Plug 'thaerkh/vim-indentguides'
 Plug 'easymotion/vim-easymotion'
 "Plug 'Konfekt/FastFold'
 Plug 'Erichain/vim-monokai-pro'
+Plug 'martinda/Jenkinsfile-vim-syntax'
+Plug 'vim-scripts/groovyindent-unix'
 "Plug 'w0rp/ale'
 "if has('nvim')
 "  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
