@@ -247,6 +247,9 @@ nnoremap <Leader>p :set paste<CR>
 nnoremap <Leader>o :set nopaste<CR>
 noremap  <Leader>g :GitGutterToggle<CR>
 
+" copy paste form os clipboard
+noremap <Leader>y "+y
+noremap <Leader>p "+p
 
 if exists(":Tabularize")
   nmap <Leader>a= :Tabularize /=<CR>

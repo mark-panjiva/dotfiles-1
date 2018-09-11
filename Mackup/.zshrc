@@ -87,6 +87,8 @@ if [ -f $HOME/.rvm/scripts/rvm ]; then
 elif [ -f /usr/local/rvm/scripts/rvm ]; then
   source /usr/local/rvm/scripts/rvm
 fi
+bindkey '^U' backward-kill-line
+bindkey '^Y' yank
 
 rvm use 2.3.0
 rvm_slience_mismatched_path=1
