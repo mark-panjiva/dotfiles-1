@@ -4,7 +4,7 @@
 # Path to your oh-my-zsh installation.
 autoload -Uz is-at-least
 export ZSH=/home/mark/.oh-my-zsh
-ZSH_THEME="dogenpunk"
+ZSH_THEME="agnoster"
 ENABLE_CORRECTION="true"
 COMPLETION_WAITING_DOTS="true"
 plugins=(
@@ -84,4 +84,8 @@ rvm_slience_mismatched_path=1
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export RUBYOPT=-W0
+export HOST=dev-mark.panjiva.com
+export PORT=443
+export PROTOCOL=https
 xmodmap ~/.Xmodmap
