@@ -57,6 +57,9 @@ alias git_clean_remote_branches='git branch -r --merged | egrep -v "(^\*|master)
 alias cat='pygmentize -g'
 alias spc='vpn connect us-remote.spglobal.com/vpn'
 alias spd='vpn disconnect'
+
+alias rand='head -3 /dev/urandom | tr -cd "[:alnum:]" | cut -c -8'
+
 if [ -f $REPO_PATH/script/panjiva_zshrc ]; then
   source $REPO_PATH/script/panjiva_zshrc
   setup_git_hooks
