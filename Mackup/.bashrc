@@ -131,7 +131,7 @@ alias gp="git push -u origin \$__git_ps1 "$(%s)""
 alias gpf="git push -f -u origin \$__git_ps1 "$(%s)""
 export RAILS_ENV=development_mark
 alias dbm="RAILS_ENV=development_mark bundle exec rake db:migrate"
-alias cg="cd ~/workspaces/web"
+alias cg="cd ~/web"
 alias bi="rvmsudo bundle install"
 alias tag-gen="cg;ctags -R --languages=ruby --exclude=.git --exclude=log . ;cd -" 
 alias snap-gen="ssh deploy@lethe 'web/tools/snapshot_db_zfs -f mark'"
