@@ -63,6 +63,7 @@ alias gs="git status --column"
 export RAILS_ENV=development_mark
 alias dbm="RAILS_ENV=development_mark bundle exec rake db:migrate"
 alias cg="cd ~/web"
+alias cj="cd ~/jenkins"
 alias bi="rvmsudo bundle install"
 alias tag-gen="cg;ctags -R --languages=ruby --exclude=.git --exclude=log . ;cd -" 
 alias snap-gen="ssh deploy@lethe 'web/tools/snapshot_db_zfs -f mark'"
@@ -81,3 +82,5 @@ export RUBYOPT=-W0
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.local/bin:$HOME/.rvm/bin"
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[cursor]=bold
