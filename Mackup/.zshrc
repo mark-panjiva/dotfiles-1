@@ -9,7 +9,7 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
 
 prompt eriner
-
+source /etc/profile.d/rvm.sh
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
@@ -58,7 +58,7 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
 # aliases
 alias ff="find . -type f -name "
-alias gl="git log --pretty=format:'%C(green)%ad %C(auto)%h %C(auto)[%an]%C(auto)%d %s %C(auto)[%an]' --date=format:'%Y/%m/%d %H:%M'"
+alias gl="git log --pretty=format:'%C(green)%ad %C(auto)%h %C(auto)[%an]%C(auto)%d %s %C(auto)[%an]' --date=human"
 alias gs="git status --column"
 export RAILS_ENV=development_mark
 alias dbm="RAILS_ENV=development_mark bundle exec rake db:migrate"
@@ -68,7 +68,7 @@ alias bi="rvmsudo bundle install"
 alias tag-gen="cg;ctags -R --languages=ruby --exclude=.git --exclude=log . ;cd -" 
 alias snap-gen="ssh deploy@lethe 'web/tools/snapshot_db_zfs -f mark'"
 alias xclip="xclip -selection c"
-export REPO_PATH=~/workspaces/web     # change for your layout
+export REPO_PATH=~/web     # change for your layout
 alias git_clean_local_branches='git branch --merged | egrep -v "(^\*|master)" | xargs --no-run-if-empty git branch -d'
 alias git_clean_remote_branches='git branch -r --merged | egrep -v "(^\*|master)" | xargs --no-run-if-empty -n 1 git push --delete'
 if [ -f $REPO_PATH/script/panjiva_bashrc ]; then
