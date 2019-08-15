@@ -11,8 +11,8 @@
 # if running bash
 if [ -n "$BASH_VERSION" ]; then
     # include .bashrc if it exists
-    if [ -f "$HOME/.bashrc" ]; then
-	. "$HOME/.bashrc"
+    if [ -f "$HOME/.zshrc" ]; then
+	. "$HOME/.zshrc"
     fi
 fi
 
@@ -22,9 +22,10 @@ if [ -d "$HOME/bin" ] ; then
 fi
 export RUBYOPT=-W0
 export RAILS_ENV=development_mark
-export HOST=yellow.panjiva.com
+export HOST=hun.panjiva.com
 export PORT=27270
 export PROTOCOL=http
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+export QA_DB_HOST=${qaDbHost}
