@@ -1,53 +1,48 @@
-# If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
-
-# Path to your oh-my-zsh installation.
-autoload -Uz is-at-least
-if ! is-at-least 5.2; then
-  export ZSH=/home/mark/.oh-my-zsh
-<<<<<<< HEAD
-  # ZSH_THEME="refined"
-  ZSH_THEME="agnoster"
-=======
-  ZSH_THEME="refined"
-  #ZSH_THEME="kafeitu"
->>>>>>> 63453c78c9740302c14dc32a1cd0b29799a32ef2
-  ENABLE_CORRECTION="true"
-  COMPLETION_WAITING_DOTS="true"
-  plugins=(
-    git
-    bundler
-    dotenv
-    rake
-    ruby
-  )
-  source ~/powerless/powerless.zsh false # Script with prompt, disable hardcoded colors.
-  source ~/powerless/utilities.zsh true  # Optional scripts (see above), enable dirstack tweaks.
-  source $ZSH/oh-my-zsh.sh
-else
-  ZSH_THEME="powerline"
-  export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-  # Start zim
-  [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh#
-  # User configuration sourced by interactive shells
-  source ${ZDOTDIR:-${HOME}}/.zlogin
-  # Change default zim location
-  # export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-  # Start zim
-  [[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh#
-  # prompt -s powerline
-fi
-# User configuration
-
-# export MANPATH="/usr/local/man:$MANPATH"
-
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
 #
 # User configuration sourced by interactive shells
+#
+
+# Define zim location
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Start zim
+[[ -s ${ZIM_HOME}/init.zsh ]] && source ${ZIM_HOME}/init.zsh
+
+prompt eriner
+source /etc/profile.d/rvm.sh
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines or lines starting with space in the history.
+# See bash(1) for more options
+# append to the history file, don't overwrite it
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+
+export HISTCONTROL=ignoredups:erasedups  # no duplicate entries
+export HISTSIZE=100000                   # big big history
+export HISTFILESIZE=100000               # big big history
+
+# Save and reload the history after each command finishes
+export PROMPT_COMMAND="history -a; history -c; history -r; $PROMPT_COMMAND"
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -61,42 +56,42 @@ alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 # aliases
 alias ff="find . -type f -name "
-alias gl="git log --pretty=format:'%C(green)%ad %C(auto)%h %C(auto)[%an]%C(auto)%d %s' --date=format:'%Y/%m/%d %H:%M'"
+alias gl="git log --pretty=format:'%C(green)%ad %C(auto)%h %C(auto)[%an]%C(auto)%d %s %C(auto)[%an]' --date=human"
 alias gs="git status --column"
 export RAILS_ENV=development_mark
 alias dbm="RAILS_ENV=development_mark bundle exec rake db:migrate"
-alias cg="cd ~/web;source ~/.zshrc;"
+alias cg="cd ~/web"
+alias cj="cd ~/jenkins"
 alias bi="rvmsudo bundle install"
-alias tag-gen="cg;ctags -R --languages=ruby --exclude=.git --exclude=log . ;cd -"
+alias tag-gen="cg;ctags -R --languages=ruby --exclude=.git --exclude=log . ;cd -" 
 alias snap-gen="ssh deploy@lethe 'web/tools/snapshot_db_zfs -f mark'"
 alias xclip="xclip -selection c"
-export REPO_PATH=~/web     # change fo-r your layout
+export REPO_PATH=~/web     # change for your layout
 alias git_clean_local_branches='git branch --merged | egrep -v "(^\*|master)" | xargs --no-run-if-empty git branch -d'
 alias git_clean_remote_branches='git branch -r --merged | egrep -v "(^\*|master)" | xargs --no-run-if-empty -n 1 git push --delete'
+<<<<<<< HEAD
 alias cat='pygmentize -g'
 alias spc='vpn connect us-remote.spglobal.com/vpn'
 alias spd='vpn disconnect'
+
+alias rand='head -3 /dev/urandom | tr -cd "[:alnum:]" | cut -c -8'
+
 if [ -f $REPO_PATH/script/panjiva_zshrc ]; then
   source $REPO_PATH/script/panjiva_zshrc
+=======
+if [ -f $REPO_PATH/script/panjiva_bashrc ]; then
+  source $REPO_PATH/script/panjiva_bashrc
+>>>>>>> ae8621054c895d58bee4ba9dc6cb6d3e32786159
   setup_git_hooks
 fi
 export TERM=xterm-256color
-export rvmsudo_secure_path=1
-export VISUAL=vim
-export EDITOR=""$VISUAL""
-export PATH=/opt/cisco/anyconnect/bin/:$HOME/.local/bin:$PATH
-if [ -f $HOME/.rvm/scripts/rvm ]; then
-  source $HOME/.rvm/scripts/rvm
-elif [ -f /usr/local/rvm/scripts/rvm ]; then
-  source /usr/local/rvm/scripts/rvm
-fi
 
-rvm use 2.3.0
-rvm_slience_mismatched_path=1
+export API_ACCESS_TOKEN="qUWznXxnHvZeizwZAhpU3Xp3IUtYkLuK5q47jgt8"
+export RUBYOPT=-W0
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
-xmodmap ~/.Xmodmap
+export PATH="$PATH:$HOME/.local/bin:$HOME/.rvm/bin"
+typeset -A ZSH_HIGHLIGHT_STYLES
+ZSH_HIGHLIGHT_STYLES[cursor]=bold

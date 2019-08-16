@@ -47,6 +47,9 @@ Plug 'easymotion/vim-easymotion'
 Plug 'Erichain/vim-monokai-pro'
 Plug 'martinda/Jenkinsfile-vim-syntax'
 Plug 'vim-scripts/groovyindent-unix'
+Plug 'othree/yajs'
+Plug 'maxmellon/vim-jsx-pretty'
+
 "Plug 'w0rp/ale'
 "if has('nvim')
 "  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
